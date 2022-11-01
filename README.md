@@ -1,34 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# HackCWRU 2023 Preregistration System
+This is the preregistration system for HackCWRU 2023. It is a web application that allows students to preregister for HackCWRU 2023. It is built using Next.js and MongoDB.
 
 ## Getting Started
+First, clone the repository and install the dependencies with `npm install`.
 
-First, run the development server:
+Then, create a `.env.local` file in the root directory of the project. This file should contain the following environment variables:
 
-```bash
-npm run dev
-# or
-yarn dev
+```
+MONGO_URI="MongoDB connection URL"
+EMAIL_USER="Email address to send emails from"
+EMAIL_PWD="Password for the email address"
+BLAST_PWD="Password to check when an email blast is requested"
+SIGNUP_LINK="Link to the signup form when registration opens"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Once you have set everything up, you may either run the development server or build the project to production.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Development Server
+Run `npm run dev` to start the development server.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Production Build
+Run `npm run build` to build the project to a folder. Then, run `npm run start` to start the production server.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Usage
+Once the server has started, the registration form is served at the root. When it is time to send out emails, the email blast page is served at `/mailblast?password=YOURPASSWORDHERE`. You may visit this page in the browser or use an application like cURL to send a GET request to the page.
